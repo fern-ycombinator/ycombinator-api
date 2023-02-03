@@ -7,6 +7,8 @@ Tagging a release on this repository will update the:
 - [Postman collection repo](https://github.com/fern-ycombinator/ycombinator-postman)
 - _More SDKs to come..._
 
+*Explore the [docs](https://api.ycombinator.com/v0.1/docs)*
+
 ## What is in this repository?
 
 This repository contains
