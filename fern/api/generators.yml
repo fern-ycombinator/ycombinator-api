@@ -1,0 +1,40 @@
+default-group: local
+groups:
+  local:
+    generators:
+      - name: fernapi/fern-typescript-sdk
+        version: 0.0.273
+        output:
+          location: local-file-system
+          path: ../../generated/typescript
+
+      - name: fernapi/fern-openapi
+        version: 0.0.19
+        output:
+          location: local-file-system
+          path: ../../generated/openapi
+
+  publish:
+    generators:
+      - name: fernapi/fern-typescript-sdk
+        version: 0.0.273
+        output:
+          location: npm
+          package-name: '@fern-api/{company}'
+          token: ${FERN_NPM_TOKEN}
+        github:
+          repository: fern-{company}/{company}-node
+          
+      - name: fernapi/fern-openapi
+        version: 0.0.19
+        github:
+          repository: fern-{company}/{company}-openapi
+          
+      - name: fernapi/fern-postman
+        version: 0.0.34
+        output:
+          location: postman
+          api-key: ${FERN_POSTMAN_API_KEY}
+          workspace-id: ${FERN_POSTMAN_WORKSPACE_ID}
+        github:
+          repository: fern-{company}/{company}-postman
