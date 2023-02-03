@@ -1,0 +1,41 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/fern-api/fern/main/fern.schema.json
+
+service:
+  auth: false
+  base-path: /
+  endpoints:
+    getAllCompanies:
+      display-name: Get All Companies
+      docs: Get a list of the public Y Combinator companies in the [Directory](https://www.ycombinator.com/companies).
+      method: GET
+      path: /companies
+      response: AllCompanies
+
+types:
+  AllCompanies:
+    properties:
+      companies: list<Company>
+
+  Company:
+    properties:
+      id: integer
+      name: string 
+      slug: string 
+      website: string
+      smallLogoUrl: string 
+      oneLiner: string 
+      longDescription: string 
+      teamSize: integer 
+      url: string 
+      batch: string 
+      tags: list<string>
+      status: string 
+      industries: list<string>
+      regions: list<string>
+      locations: list<string>
+      badges: list<unknown>
+
+errors:
+  RateLimitError:
+    status-code: 429
+    docs: When making requests too fast. Read `retryAfterSeconds` from the body of the response and wait that long before trying your next request.

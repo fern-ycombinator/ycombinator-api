@@ -1,6 +1,10 @@
 name: api
-auth: bearer
-environments:
-  Production: https://api.example.com
-  Sandbox: https://sandbox.example.com
-default-environment: Production
+display-name: Y Combinator API
+environments: 
+  Production: https://api.ycombinator.com/v0.1
+default-environment: Production 
+error-discrimination:
+  strategy: status-code
+docs: | 
+  Welcome to version 0.1 of Y Combinator's public API. This is a very early version of what we hope will be a much richer offering in the future.
+  If you're using this API, please [let us know](mailto:software@ycombinator.com) and we will add you to an announcement mailing list for future updates.
