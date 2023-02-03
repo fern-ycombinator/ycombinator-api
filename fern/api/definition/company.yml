@@ -10,6 +10,8 @@ service:
       method: GET
       path: /companies
       response: AllCompanies
+      errors:
+        - RateLimitError
 
 types:
   AllCompanies:
@@ -33,7 +35,7 @@ types:
       industries: list<string>
       regions: list<string>
       locations: list<string>
-      badges: list<unknown>
+      badges: list<string>
 
 errors:
   RateLimitError:
