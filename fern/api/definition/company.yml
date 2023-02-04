@@ -52,11 +52,50 @@ service:
       response: AllCompanies
       errors:
         - RateLimitError
+      examples:
+        - query-parameters:
+            q: Fern 
+            batch: W23
+          response: 
+            body: 
+              companies:
+                - id: 28103
+                  name: Fern
+                  slug: fern
+                  website: https://www.buildwithfern.com
+                  smallLogoUrl: >-
+                    https://bookface-images.s3.amazonaws.com/small_logos/884fb2f50da3c4151657d7b8e82ec485436cc6a6.png
+                  oneLiner: Stop writing tedious boilerplate. Start using Fern.
+                  longDescription: "Our team has spent a lot of time doing repetitive, boring tasks when writing APIs.\r\n\r\nWe would write the types and networking on the backend and then do it all again in TypeScript on the frontend. We’d do it again when writing client libraries, and a fourth time when updating our documentation and Postman collection.\r\n\r\nWriting the same code again and again and keeping it all in sync is time-consuming, error-prone, and work that no engineering team wants to do.\r\n\r\nFern is automation for your API. Define your API once and click generate. Out of the box, you’ll get server code, clients, and a Postman collection."
+                  teamSize: 3
+                  url: https://www.ycombinator.com/companies/fern
+                  batch: W23
+                  tags:
+                    - API
+                    - B2B
+                    - SaaS
+                    - Open Source
+                    - Developer Tools
+                  status: Active
+                  industries:
+                    - B2B Software and Services
+                    - Engineering, Product and Design
+                  regions:
+                    - United States of America
+                    - America / Canada
+                  locations:
+                    - San Francisco, CA, USA
+                    - Seattle, WA, USA
+                  badges: []
+              page: 0
+              totalPages: 1
 
 types:
   AllCompanies:
     properties:
       companies: list<Company>
+      page: integer 
+      totalPages: integer
 
   Company:
     properties:
