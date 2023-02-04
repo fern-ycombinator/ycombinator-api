@@ -1,6 +1,7 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/fern-api/fern/main/fern.schema.json
 
 service:
+  display-name: YC Company Service
   auth: false
   base-path: /
   endpoints:
@@ -9,6 +10,45 @@ service:
       docs: Get a list of the public Y Combinator companies in the [Directory](https://www.ycombinator.com/companies).
       method: GET
       path: /companies
+      request:
+        name: GetAllCompaniesRequest
+        query-parameters:
+          page:
+            type: optional<integer>
+            docs: You can page through responses with a page parameter
+          q: 
+            type: optional<string>
+            docs: To search YC companies, you can pass in a general search query.
+          batch:
+            type: optional<string>
+            docs: The batch the company participated in 
+          status: 
+            type: optional<string>
+            docs: The status of the company
+          industry: 
+            type: optional<string>
+            docs: The industry of the company 
+          region: 
+            type: optional<string>
+            docs: The region of the company 
+          tags: 
+            type: optional<string>
+            docs: The tags self-selected by the company 
+          isHiring: 
+            type: optional<boolean>
+            docs: Whether or not the company is actively hiring
+          nonprofit: 
+            type: optional<boolean>
+            docs: Whether or not the company is a non-profit
+          highlight_black: 
+            type: optional<boolean>
+            docs: Whether or not the company has self-selected as having a black founder
+          highlight_latinx: 
+            type: optional<boolean>
+            docs: Whether or not the company has self-selected as having a latinx founder
+          highlight_women: 
+            type: optional<boolean>
+            docs: Whether or not the company has self-selected as having a female founder
       response: AllCompanies
       errors:
         - RateLimitError
@@ -36,6 +76,13 @@ types:
       regions: list<string>
       locations: list<string>
       badges: list<string>
+
+  Status: 
+    enum: 
+      - Active 
+      - Public
+      - Acquired
+      - Inactive
 
 errors:
   RateLimitError:
